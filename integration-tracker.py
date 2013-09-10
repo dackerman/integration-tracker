@@ -1,7 +1,6 @@
 import subprocess
 import re
 
-
 def run():
   config = open('integrations.txt')
   
@@ -16,6 +15,7 @@ def run():
     if '->' in line:
       if frombranch:
         outlines.extend(show_integrations(frombranch, tobranch, exceptions))
+        exceptions = []
       (frombranch, _, tobranch) = line.split(None, 3)
     else:
       exception = from_int_line(line)
